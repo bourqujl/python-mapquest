@@ -99,15 +99,14 @@
 <p>Methods:</p>
 <dl class="method">
 <dt id="mapquest.MapQuest.geocode">
-<tt class="descname">geocode</tt><big>(</big><em>location</em>, <em>limit=-1</em>, <em>thumbnails=True</em>, <em>bounding_box=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#mapquest.MapQuest.geocode" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fetchs geocode data for a specified address. Useful for finding the 
-relative latitude and longitude of an address.</p>
+<tt class="descname">geocode</tt><big>(</big><em>address</em>, <em>limit=-1</em>, <em>thumbnails=True</em>, <em>bounding_box=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#mapquest.MapQuest.geocode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns geocode data for a specified address. Useful for finding the relative latitude and longitude of an address.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>location</strong> (<em>str or dict</em>) &#8211; The address the geocoder should look up.</li>
+<li><strong>address</strong> (<em>str or dict</em>) &#8211; The address the geocoder should look up.</li>
 <li><strong>limit</strong> (<em>int</em>) &#8211; Limits the number of results returned by the geocoder service. Specify -1 for unlimited results.</li>
 <li><strong>thumbnails</strong> (<em>bool</em>) &#8211; Specifies whether the geocoder service should return a URL to a map thumbnail image in the results for the location being geocoded.</li>
 <li><strong>bounding_box</strong> (<em>list or tuple</em>) &#8211; Moves any locations within the bounding box to the top of the results list when ambiguous results are returned (i.e. the provided address coresponds to multiple locations). See Bounding Boxes for more info.</li>
@@ -116,10 +115,10 @@ relative latitude and longitude of an address.</p>
 </tr>
 </tbody>
 </table>
-<p>The <strong>location</strong> may be specified as either a string or dictionary as follows:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">location</span> <span class="o">=</span> <span class="s">&#39;1555 Blake St,Denver,CO,80202&#39;</span>
+<p>The <strong>address</strong> may be specified as either a string or dictionary as follows:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">address</span> <span class="o">=</span> <span class="s">&#39;1555 Blake St,Denver,CO,80202&#39;</span>
 
-<span class="n">location</span> <span class="o">=</span> <span class="p">{</span>
+<span class="n">address</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">&#39;street&#39;</span><span class="p">:</span> <span class="s">&#39;1555 Blake St&#39;</span><span class="p">,</span>
     <span class="s">&#39;city&#39;</span><span class="p">:</span> <span class="s">&#39;Denver&#39;</span><span class="p">,</span>
     <span class="s">&#39;state&#39;</span><span class="p">:</span> <span class="s">&#39;CO&#39;</span><span class="p">,</span>
@@ -139,15 +138,14 @@ relative latitude and longitude of an address.</p>
 
 <dl class="method">
 <dt id="mapquest.MapQuest.reverse_geocode">
-<tt class="descname">reverse_geocode</tt><big>(</big><em>location</em>, <em>limit=-1</em>, <em>thumbnails=True</em>, <em>bounding_box=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#mapquest.MapQuest.reverse_geocode" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fetchs geocode data for a specified latitude and longitude.Useful for 
-finding the relative address of a latitude and longitude.</p>
+<tt class="descname">reverse_geocode</tt><big>(</big><em>latlng</em>, <em>limit=-1</em>, <em>thumbnails=True</em>, <em>bounding_box=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#mapquest.MapQuest.reverse_geocode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns geocode data for a specified latitude and longitude. Useful for finding the relative address of a latitude and longitude.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>location</strong> (<em>str, list, or tuple</em>) &#8211; The latitude and longitude the geocoder should look up.</li>
+<li><strong>latlng</strong> (<em>str, list, or tuple</em>) &#8211; The latitude and longitude the geocoder should look up.</li>
 <li><strong>limit</strong> (<em>int</em>) &#8211; Limits the number of results returned by the geocoder service. Specify -1 for unlimited results.</li>
 <li><strong>thumbnails</strong> (<em>bool</em>) &#8211; Specifies whether the geocoder service should return a URL to a map thumbnail image in the results for the location being geocoded.</li>
 <li><strong>bounding_box</strong> (<em>list or tuple</em>) &#8211; Moves any locations within the bounding box to the top of the results list when ambiguous results are returned (i.e. the provided address coresponds to multiple locations). See Bounding Boxes for more info.</li>
@@ -156,10 +154,10 @@ finding the relative address of a latitude and longitude.</p>
 </tr>
 </tbody>
 </table>
-<p>The <strong>location</strong> may be specified as either a string or list as follows:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">location</span> <span class="o">=</span> <span class="s">&#39;39.7505568,-104.9996268&#39;</span>
+<p>The <strong>latlng</strong> may be specified as either a string or list as follows:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">latlng</span> <span class="o">=</span> <span class="s">&#39;39.7505568,-104.9996268&#39;</span>
 
-<span class="n">location</span> <span class="o">=</span> <span class="p">[</span><span class="mf">39.7505568</span><span class="p">,</span><span class="o">-</span><span class="mf">104.9996268</span><span class="p">]</span>
+<span class="n">latlng</span> <span class="o">=</span> <span class="p">[</span><span class="mf">39.7505568</span><span class="p">,</span><span class="o">-</span><span class="mf">104.9996268</span><span class="p">]</span>
 </pre></div>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
@@ -175,8 +173,7 @@ finding the relative address of a latitude and longitude.</p>
 <dl class="method">
 <dt id="mapquest.MapQuest.batch_geocode">
 <tt class="descname">batch_geocode</tt><big>(</big><em>locations</em>, <em>limit=-1</em>, <em>thumbnails=True</em>, <em>bounding_box=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#mapquest.MapQuest.batch_geocode" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fetchs the geocode data for multiple addresses. Useful for finding the 
-relative latitude and longitude of multiple addresses.</p>
+<dd><p>Returns the geocode data for multiple addresses. Useful for finding the relative latitude and longitude of multiple addresses.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
