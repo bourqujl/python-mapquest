@@ -192,23 +192,22 @@ class MapQuest(object):
 
     #<------------------------------------------------------------------------->
 
-    def geocode(self, location, limit=-1, thumbnails=True, bounding_box=[]):
+    def geocode(self, address, limit=-1, thumbnails=True, bounding_box=[]):
         """
-        Fetchs geocode data for a specified address. Useful for finding the 
-        relative latitude and longitude of an address.
+        Returns geocode data for a specified address. Useful for finding the relative latitude and longitude of an address.
 
-        :param location: The address the geocoder should look up.
-        :type location: str or dict 
+        :param address: The address the geocoder should look up.
+        :type address: str or dict 
         :param int limit: Limits the number of results returned by the geocoder service. Specify -1 for unlimited results.
         :param bool thumbnails: Specifies whether the geocoder service should return a URL to a map thumbnail image in the results for the location being geocoded.
         :param bounding_box: Moves any locations within the bounding box to the top of the results list when ambiguous results are returned (i.e. the provided address coresponds to multiple locations). See Bounding Boxes for more info.
         :type bounding_box: list or tuple
 
-        The **location** may be specified as either a string or dictionary as follows::
+        The **address** may be specified as either a string or dictionary as follows::
 
-            location = '1555 Blake St,Denver,CO,80202'
-
-            location = {
+            address = '1555 Blake St,Denver,CO,80202'
+            
+            address = {
                 'street': '1555 Blake St',
                 'city': 'Denver',
                 'state': 'CO',
@@ -218,39 +217,37 @@ class MapQuest(object):
         :returns: :ref:`MapQuest Geocode Response <responses-label>`
         """
 
-        return self._geocode('geocode', location, limit, thumbnails, bounding_box)
+        return self._geocode('geocode', address, limit, thumbnails, bounding_box)
 
     #<------------------------------------------------------------------------->
 
-    def reverse_geocode(self, location, limit=-1, thumbnails=True, bounding_box=[]):
+    def reverse_geocode(self, latlng, limit=-1, thumbnails=True, bounding_box=[]):
         """
-        Fetchs geocode data for a specified latitude and longitude.Useful for 
-        finding the relative address of a latitude and longitude.
+        Returns geocode data for a specified latitude and longitude. Useful for finding the relative address of a latitude and longitude.
 
-        :param location: The latitude and longitude the geocoder should look up.
-        :type location: str, list, or tuple 
+        :param latlng: The latitude and longitude the geocoder should look up.
+        :type latlng: str, list, or tuple 
         :param int limit: Limits the number of results returned by the geocoder service. Specify -1 for unlimited results.
         :param bool thumbnails: Specifies whether the geocoder service should return a URL to a map thumbnail image in the results for the location being geocoded.
         :param bounding_box: Moves any locations within the bounding box to the top of the results list when ambiguous results are returned (i.e. the provided address coresponds to multiple locations). See Bounding Boxes for more info.
         :type bounding_box: list or tuple
 
-        The **location** may be specified as either a string or list as follows::
+        The **latlng** may be specified as either a string or list as follows::
 
-            location = '39.7505568,-104.9996268'
+            latlng = '39.7505568,-104.9996268'
 
-            location = [39.7505568,-104.9996268]
+            latlng = [39.7505568,-104.9996268]
 
         :returns: :ref:`MapQuest Geocode Response <responses-label>`
         """
 
-        return self._geocode('reverse_geocode', location, limit, thumbnails, bounding_box)
+        return self._geocode('reverse_geocode', latlng, limit, thumbnails, bounding_box)
 
     #<------------------------------------------------------------------------->
 
     def batch_geocode(self, locations, limit=-1, thumbnails=True, bounding_box=[]):
         """
-        Fetchs the geocode data for multiple addresses. Useful for finding the 
-        relative latitude and longitude of multiple addresses.
+        Returns the geocode data for multiple addresses. Useful for finding the relative latitude and longitude of multiple addresses.
 
         :param locations: A list of addresses the geocoder should look up.
         :type locations: list or tuple 
